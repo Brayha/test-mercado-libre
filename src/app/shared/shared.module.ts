@@ -1,9 +1,11 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HeaderComponent } from './header/header.component';
+import { HeaderComponent } from './components/header/header.component';
+import { DetailSearchComponent } from './components/detail-search/detail-search.component';
 
 const SHARED_EXPORTS = [
-  HeaderComponent
+  HeaderComponent,
+  DetailSearchComponent,
 ];
 
 @NgModule({
