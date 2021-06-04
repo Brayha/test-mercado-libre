@@ -1,4 +1,16 @@
-body {
-    padding: 0;
-    margin: 0;
+.responsive-style {
+    width: 1200px;
+    margin: auto;
+
+    @media screen and (max-width: 1200px) {
+        width: 100%;
+    }
+
+    @media screen and (max-width: 770px) {
+        width: 100%;
+    }
+
+    @media screen and (max-width: 540px) {
+        width: 100%;
+    }
 }

@@ -1,5 +1,26 @@
-.header-style {
-    width: 100%;
-    height: 100px;
-    background-color: yellow;
+.responsive-style-header {
+  background-color: var(--ion-color-primary);
+
+  ion-toolbar {
+    width: 1200px;
+    margin: auto;
+    padding-top: 6px;
+    padding-bottom: 6px;
+
+    @media screen and (max-width: 1200px) {
+      width: 100%;
+    }
+
+    @media screen and (max-width: 770px) {
+      width: 100%;
+    }
+
+    @media screen and (max-width: 540px) {
+      width: 100%;
+    }
+
+    ion-searchbar {
+      --box-shadow: none !important;
+    }
+  }
 }
