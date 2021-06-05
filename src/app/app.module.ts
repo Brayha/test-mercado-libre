@@ -9,12 +9,14 @@ import { SharedModule } from './shared/shared.module';
 import { IonicModule } from '@ionic/angular';
 import { SearchService } from './services/search.service';
 import { HttpClientModule } from '@angular/common/http';
+import { SearchBoxComponent } from './search-box/search-box.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductDetailComponent,
-    SearchResultComponent
+    SearchResultComponent,
+    SearchBoxComponent
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,22 @@
 .padding-list {
     padding-left: 16px;
     padding-right: 16px;
-    margin: 16px;
+    margin-top: 16px;
 }
+
+ul.breadcrumb {
+    margin-top: 16px;
+    padding: 0;
+    list-style: none;
+  }
+  
+  ul.breadcrumb li {
+    display: inline;
+    font-size: 14px;
+    color: var(--ion-color-medium);
+  }
+  
+  ul.breadcrumb li+li:before {
+    padding: 0 6px;
+    content: "\003E";
+  }

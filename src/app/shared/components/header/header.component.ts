@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SearchService } from 'src/app/services/search.service';
 import { SEARCH } from '../../constants/search';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -10,11 +11,20 @@ import { SEARCH } from '../../constants/search';
 export class HeaderComponent implements OnInit {
   public searchDetail = SEARCH;
 
-  constructor(private searchService: SearchService) {}
+  constructor(
+    private router: Router,
+    private searchService: SearchService
+  ) {
 
-  ngOnInit() {}
+  }
 
-  public onSearch(e:any) {
-      this.searchService.searchAPI(e);
+  ngOnInit() {
+
+  }
+
+  public onSearch(e: any) {
+    this.searchService.searchAPI(e);
+    console.log(e);
+    this.router.navigateByUrl("/items" + "?search=" + e);
   }
 }

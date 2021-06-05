@@ -1,4 +1,4 @@
-<ion-item class="ion-no-padding" lines="full">
+<ion-item class="ion-no-padding" lines="full" (click)="selectProduct()">
   <div class="detail-product-search">
     <!--img-->
     <img src="{{data.picture}}" alt="mercado libre" class="product-img">
@@ -6,8 +6,8 @@
     <div class="detail-product">
       <!--precio-->
       <div class="info-price">
-        <h2>$ {{data.amount}}</h2>
-        <img src="./assets/ic_shipping.png" alt="mercado-libre" class="delivery-icon">
+        <h2>$ {{data.price.amount}}</h2>
+        <img src="./assets/ic_shipping.png" alt="mercado-libre" class="delivery-icon" *ngIf="data.free_shipping">
         <h3>Capital Federal</h3>
       </div>
       <!--descripción-->

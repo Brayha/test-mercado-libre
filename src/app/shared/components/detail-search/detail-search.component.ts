@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-detail-search',
@@ -7,9 +8,18 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class DetailSearchComponent implements OnInit {
 
-  @Input()
-  data: any = {};
-  constructor() {}
+  @Input() data: any = {};
 
-  ngOnInit() {}
+  constructor(
+    private router: Router
+    ) {
+  }
+
+  ngOnInit() {
+  }
+
+  selectProduct() {
+    this.router.navigateByUrl("/items2");
+  }
+  
 }

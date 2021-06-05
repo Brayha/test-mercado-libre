@@ -1,5 +1,9 @@
 <ion-header class="ion-no-border responsive-style-header">
   <ion-toolbar color="primary">
-    <ion-searchbar mode="md" [placeholder]="searchDetail.placeholder" #q (keyup.enter)="onSearch(q.value)"></ion-searchbar>
+    <ion-thumbnail slot="start">
+      <img src="./assets/Logo_ML@2x.png.png.png">
+    </ion-thumbnail>
+    <ion-searchbar mode="md" [placeholder]="searchDetail.placeholder" #search (keyup.enter)="onSearch(search.value)">
+    </ion-searchbar>
   </ion-toolbar>
 </ion-header>
