@@ -9,8 +9,8 @@ app.use(cors());
 app.get('/api/items', (req, res) => {
     const response = {
         author: {
-            name: 'Cristian',
-            lastname: 'Hincapié',
+            name: 'Brayhan',
+            lastname: 'Garcia',
         },
         categories: [],
         items: [],
@@ -49,8 +49,8 @@ app.get('/api/items', (req, res) => {
 app.get('/api/items/:id', (req, res) => {
     const response = {
         author: {
-            name: 'Cristian',
-            lastname: 'Hincapié',
+            name: 'Brayhan',
+            lastname: 'Garcia',
         },
         categories: [],
         item: null,
