@@ -1,5 +1,5 @@
 <ion-header class="ion-no-border responsive-style-header">
   <ion-toolbar color="primary">
-    <ion-searchbar mode="md" [placeholder]="searchDetail.placeholder"></ion-searchbar>
+    <ion-searchbar mode="md" [placeholder]="searchDetail.placeholder" #q (keyup.enter)="onSearch(q.value)"></ion-searchbar>
   </ion-toolbar>
 </ion-header>

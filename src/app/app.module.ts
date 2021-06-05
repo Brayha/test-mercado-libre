@@ -7,6 +7,8 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
 import { SearchResultComponent } from './search-result/search-result.component';
 import { SharedModule } from './shared/shared.module';
 import { IonicModule } from '@ionic/angular';
+import { SearchService } from './services/search.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,9 +20,10 @@ import { IonicModule } from '@ionic/angular';
     BrowserModule,
     SharedModule,
     AppRoutingModule,
-    IonicModule.forRoot()
+    IonicModule.forRoot(),
+    HttpClientModule
   ],
-  providers: [],
+  providers: [SearchService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,15 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-detail-search',
   templateUrl: './detail-search.component.html',
-  styleUrls: ['./detail-search.component.scss']
+  styleUrls: ['./detail-search.component.scss'],
 })
 export class DetailSearchComponent implements OnInit {
 
-  constructor() { }
+  @Input()
+  data: any = {};
+  constructor() {}
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

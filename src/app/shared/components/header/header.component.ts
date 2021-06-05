@@ -1,17 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { SEARCH } from '../../constants/search'
+import { SearchService } from 'src/app/services/search.service';
+import { SEARCH } from '../../constants/search';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
   public searchDetail = SEARCH;
 
-  constructor() { }
+  constructor(private searchService: SearchService) {}
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  public onSearch(e:any) {
+      this.searchService.searchAPI(e);
   }
-
 }

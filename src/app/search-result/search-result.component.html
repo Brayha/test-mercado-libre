@@ -1,7 +1,9 @@
 <ion-content [fullscreen]="true">
   <div class="responsive-style">
     <ion-list class="padding-list">
-      <app-detail-search></app-detail-search>
+      <div *ngFor="let item of searchResults">
+        <app-detail-search [data]="item"></app-detail-search>
+      </div>
     </ion-list>
   </div>
 </ion-content>
