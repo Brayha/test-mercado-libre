@@ -1,13 +1,19 @@
-<ion-item class="detail-product-search" lines="full">
-  <img src="{{data.picture}}" alt="mercado libre" class="product-img">
-  <div class="detail-product">
-    <div class="info-price">
-      <h2>$ 1.980</h2>
-      <img src="./assets/ic_shipping.png" alt="mercado-libre" class="delivery-icon">
-      <h3>Capital Federal</h3>
-    </div>
-    <div class="info-product">
-      <h4>{{data.title}}</h4>
+<ion-item class="ion-no-padding" lines="full">
+  <div class="detail-product-search">
+    <!--img-->
+    <img src="{{data.picture}}" alt="mercado libre" class="product-img">
+    <!--contenido-->
+    <div class="detail-product">
+      <!--precio-->
+      <div class="info-price">
+        <h2>$ {{data.amount}}</h2>
+        <img src="./assets/ic_shipping.png" alt="mercado-libre" class="delivery-icon">
+        <h3>Capital Federal</h3>
+      </div>
+      <!--descripción-->
+      <div class="info-product">
+        <h4>{{data.title}}</h4>
+      </div>
     </div>
   </div>
 </ion-item>

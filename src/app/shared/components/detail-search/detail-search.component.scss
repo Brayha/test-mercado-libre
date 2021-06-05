@@ -1,29 +1,41 @@
 .detail-product-search {
-  padding-top: 16px;
-  padding-bottom: 16px;
+  width: 100%;
+  height: auto;
+  display: flex;
 
   .product-img {
     width: 180px;
     height: 180px;
-    object-fit: cover;
+    display: block;
+    object-fit: contain;
+    border-radius: 4px;
+    float: left;
     margin-right: 16px;
+    margin-top: 16px;
+    margin-bottom: 16px;
   }
 
   .detail-product {
-    width: 100%;
+    width: 70%;
     height: 100%;
-    display: inline;
+    display: block;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    float: left;
 
     .info-price {
-      width: 90%;
+      width: 100%;
       height: auto;
-      display: block;
+      display: flow-root;
+      margin-top: 16px;
       margin-bottom: 32px;
 
       h2 {
         font-size: 24px;
         margin: 0;
         float: left;
+        color: var(--ion-color-dark);
+        font-weight: 400;
       }
 
       h3 {
@@ -31,6 +43,8 @@
         text-align: right;
         margin: 0;
         float: right;
+        color: var(--ion-color-dark);
+        font-weight: 400;
       }
 
       .delivery-icon {
@@ -51,6 +65,8 @@
         font-size: 18px;
         margin: 0;
         float: left;
+        color: var(--ion-color-dark);
+        font-weight: 400;
       }
     }
 
