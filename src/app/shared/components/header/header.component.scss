@@ -1,11 +1,23 @@
-.responsive-style-header {
+.style-header {
   background-color: var(--ion-color-primary);
 
-  ion-toolbar {
-    width: 1200px;
+  .center-header {
     margin: auto;
-    padding-top: 6px;
-    padding-bottom: 6px;
+  }
+
+  .logo {
+    width: auto;
+    height: 40px;
+    display: flex;
+    margin: 0;
+    object-fit: contain;
+  }
+
+  .responsive-header {
+    width: 90%;
+    margin: auto;
+    padding-top: 16px;
+    padding-bottom: 16px;
 
     @media screen and (max-width: 1200px) {
       width: 100%;
@@ -19,8 +31,30 @@
       width: 100%;
     }
 
-    ion-searchbar {
-      --box-shadow: none !important;
+    .contain-search {
+      width: 100%;
+      height: auto;
+      display: flex;
+
+      ion-searchbar {
+        --box-shadow: none !important;
+      }
+
+      .search-icon {
+        width: auto;
+        height: 40px;
+        display: flex;
+        background-color: var(--ion-color-light);
+        justify-content: center;
+        align-items: center;
+        padding: 0 0.4em;
+
+        img {
+          width: 60%;
+          height: auto;
+          display: block;
+        }
+      }
     }
   }
 }

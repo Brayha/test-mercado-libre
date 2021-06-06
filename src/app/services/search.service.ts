@@ -19,6 +19,7 @@ export class SearchService {
         (results:any) => {
             this.searchData = results.items;
             this.searchResultsLoaded.emit('loaded');
+            console.log(results);
         }
     );
   }

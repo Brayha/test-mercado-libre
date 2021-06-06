@@ -23,6 +23,7 @@ app.get('/api/items', (req, res) => {
     axios
         .get('https://api.mercadolibre.com/sites/MLA/search?q=' + req.query.q)
         .then(resp => {
+            const  categories = [];
             const items = [];
             resp.data.results.map(item => {
                 items.push({
@@ -39,6 +40,7 @@ app.get('/api/items', (req, res) => {
                 });
             });
             response.items = items;
+            response.categories = categories;
             res.json(response);
         })
         .catch(error => {
@@ -55,7 +57,6 @@ app.get('/api/items/:id', (req, res) => {
         categories: [],
         item: [],
     };
-
     if (!req.params.id) {
         return res.json(response);
     }
@@ -74,6 +75,8 @@ app.get('/api/items/:id', (req, res) => {
                 picture: resp.data.thumbnail,
                 condition: resp.data.condition,
                 free_shipping: resp.data.shipping ? resp.data.shipping.free_shipping : false,
+                sold_quantity: resp.data.sold_quantity,
+                description: resp.data.description,
             };
             res.json(response);
         })

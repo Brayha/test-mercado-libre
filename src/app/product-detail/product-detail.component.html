@@ -1,37 +1,41 @@
 <ion-content [fullscreen]="true">
-  <div class="responsive-style">
+  <ion-row class="responsive-style">
+    <ion-col size="10" class="center-contain ion-no-padding">
       <ul class="breadcrumb">
-          <li>Electrónica, audio y video</li>
-          <li>Ipod</li>
-          <li>Reproductores</li>
-          <li>Ipod Touch</li>
-          <li>32 GB</li>
+        <li>Electrónica, audio y video</li>
+        <li>Ipod</li>
+        <li>Reproductores</li>
+        <li>Ipod Touch</li>
+        <li>32 GB</li>
       </ul>
-    <div class="contain-product">
-      <ion-row>
-        <ion-col size="8">
-          <img src="./assets/product.jpeg" alt="mercado libre" class="img-product">
-        </ion-col>
-        <ion-col size="4">
-          <div class="text-product">
-            <p>Nuevo 234 - vendidos</p>
-            <h1>Deco Reverse Sombrero Oxford</h1>
-            <h2>$ 1.980</h2>
-            <ion-button size="large" expand="block" color="secondary">Comprar</ion-button>
-          </div>
-        </ion-col>
-      </ion-row>
 
-      <ion-row class="description">
-        <ion-col size="8">
-          <h2>Descripción del producto</h2>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione repellendus et obcaecati, necessitatibus,
-            sapiente quisquam culpa molestias dolor vel deleniti atque voluptates dignissimos repudiandae perspiciatis
-            eum
-            libero odit tenetur explicabo aliquam ea eos! Libero, similique ipsum. Tempora hic sequi officia, est id a
-            quas officiis deserunt blanditiis aliquid reprehenderit sint.</p>
-        </ion-col>
-      </ion-row>
-    </div>
-  </div>
+      <div class="contain-product">
+        <ion-row>
+          <ion-col size="8">
+            <img src="{{productDetail.picture}}" alt="mercado libre" class="img-product">
+          </ion-col>
+          <ion-col size="4">
+            <div class="text-product">
+              <p>Nuevo 234 - vendidos</p>
+              <h1>Deco Reverse Sombrero Oxford</h1>
+              <h2>$ {{productDetail.price.amount}}</h2>
+              <ion-button size="large" expand="block" color="secondary">Comprar</ion-button>
+            </div>
+          </ion-col>
+        </ion-row>
+
+        <ion-row class="description">
+          <ion-col size="8">
+            <h2>Descripción del producto</h2>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione repellendus et obcaecati,
+              necessitatibus,
+              sapiente quisquam culpa molestias dolor vel deleniti atque voluptates dignissimos repudiandae perspiciatis
+              eum
+              libero odit tenetur explicabo aliquam ea eos! Libero, similique ipsum. Tempora hic sequi officia, est id a
+              quas officiis deserunt blanditiis aliquid reprehenderit sint.</p>
+          </ion-col>
+        </ion-row>
+      </div>
+    </ion-col>
+  </ion-row>
 </ion-content>

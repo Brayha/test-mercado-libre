@@ -1,9 +1,23 @@
-<ion-header class="ion-no-border responsive-style-header">
-  <ion-toolbar color="primary">
-    <ion-thumbnail slot="start">
-      <img src="./assets/Logo_ML@2x.png.png.png">
-    </ion-thumbnail>
-    <ion-searchbar mode="md" [placeholder]="searchDetail.placeholder" #search (keyup.enter)="onSearch(search.value)">
-    </ion-searchbar>
-  </ion-toolbar>
+<ion-header class="ion-no-border style-header">
+  <ion-row class="responsive-header">
+    <ion-col size="10" class="center-header ion-no-padding">
+      <ion-row class="ion-no-padding">
+        <!--logo-->
+        <ion-col size="1" class="ion-no-padding">
+          <img src="./assets/Logo_ML@2x.png.png.png" alt="mercado libre" class="logo" (click)="goToHome()">
+        </ion-col>
+        <!--search-->
+        <ion-col size="11" class="ion-no-padding">
+          <div class="contain-search">
+            <ion-searchbar mode="md" [placeholder]="searchDetail.placeholder" #search
+              (keyup.enter)="onSearch(search.value)" class="ion-no-padding">
+            </ion-searchbar>
+            <div class="search-icon">
+              <img src="./assets/ic_Search@2x.png.png.png" alt="mercado-libre">
+            </div>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+  </ion-row>
 </ion-header>

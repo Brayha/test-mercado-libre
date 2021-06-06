@@ -27,4 +27,8 @@ export class HeaderComponent implements OnInit {
     console.log(e);
     this.router.navigateByUrl("/items" + "?search=" + e);
   }
+
+  goToHome() {
+    this.router.navigateByUrl("/");
+  }
 }
