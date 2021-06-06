@@ -11,7 +11,10 @@ export class SearchResultComponent implements OnInit {
   public searchResults:any = [];
   public query:any = null;
   
-  constructor(private activeRute: ActivatedRoute, private searchService: SearchService) {
+  constructor(
+    private activeRute: ActivatedRoute, 
+    private searchService: SearchService
+    ) {
       this.activeRute.queryParams.subscribe(params => {
           console.log('Param: ', params.q);
           this.query = params.q;

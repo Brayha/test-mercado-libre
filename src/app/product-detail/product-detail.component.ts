@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { SearchService } from '../services/search.service';
 
 @Component({
   selector: 'app-product-detail',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductDetailComponent implements OnInit {
 
-  constructor() { }
+  public productDetail:any = [];
+  public id: any = null;
+
+  constructor(
+    private productService: SearchService
+  ) { }
 
   ngOnInit(): void {
+    this.productService.productAPI(this.id);
+    this.productDetail = this.productService.productData;
+    
+    console.log( 'aqui es', this.productService.productData);
   }
 
 }

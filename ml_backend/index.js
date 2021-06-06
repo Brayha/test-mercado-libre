@@ -53,31 +53,32 @@ app.get('/api/items/:id', (req, res) => {
             lastname: 'Garcia',
         },
         categories: [],
-        item: null,
+        item: [],
     };
 
     if (!req.params.id) {
         return res.json(response);
     }
-
+    
     axios
-        .get('https://api.mercadolibre.com/sites/MLA/items/' + req.params.id)
+    .get('https://api.mercadolibre.com/items/' + req.params.id)
         .then(resp => {
-            response.item = {
-                id: resp.data.item.id,
-                title: resp.data.item.title,
+                response.item = {
+                id: resp.data.id,
+                title: resp.data.title,
                 price: {
-                    currency: resp.data.item.currency_id,
-                    amount: resp.data.item.price,
+                    currency: resp.data.currency_id,
+                    amount: resp.data.price,
                     decimals: 0,
                 },
-                picture: resp.data.item.thumbnail,
-                condition: resp.data.item.condition,
-                free_shipping: resp.data.item.shipping ? resp.data.item.shipping.free_shipping : false,
+                picture: resp.data.thumbnail,
+                condition: resp.data.condition,
+                free_shipping: resp.data.shipping ? resp.data.shipping.free_shipping : false,
             };
             res.json(response);
         })
         .catch(error => {
+            console.log(error);
             res.json(response);
         });
 });
