@@ -9,9 +9,11 @@
         <!--search-->
         <ion-col size="11" class="ion-no-padding">
           <div class="contain-search">
+            <!--buscador-->
             <ion-searchbar mode="md" [placeholder]="searchDetail.placeholder" #search
-              (keyup.enter)="onSearch(search.value)" class="ion-no-padding">
+              (keyup.enter)="onSearch(search.value)" debounce="700" class="ion-no-padding">
             </ion-searchbar>
+            <!--icono-->
             <div class="search-icon">
               <img src="./assets/ic_Search@2x.png.png.png" alt="mercado-libre">
             </div>

@@ -2,11 +2,7 @@
   <ion-row class="responsive-style">
     <ion-col size="10" class="center-contain ion-no-padding">
       <ul class="breadcrumb">
-        <li>Electrónica, audio y video</li>
-        <li>Ipod</li>
-        <li>Reproductores</li>
-        <li>Ipod Touch</li>
-        <li>32 GB</li>
+        <li *ngFor="let category of searchService.categories">{{category.name}}</li>
       </ul>
       <ion-list class="padding-list">
         <div *ngFor="let item of searchResults | slice:0:4; let i=index">

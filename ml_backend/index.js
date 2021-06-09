@@ -23,7 +23,7 @@ app.get('/api/items', (req, res) => {
     axios
         .get('https://api.mercadolibre.com/sites/MLA/search?q=' + req.query.q)
         .then(resp => {
-            const  categories = [];
+            console.log('item----', resp);
             const items = [];
             resp.data.results.map(item => {
                 items.push({
@@ -40,7 +40,11 @@ app.get('/api/items', (req, res) => {
                 });
             });
             response.items = items;
-            response.categories = categories;
+            let arrayCategories = resp.data.available_filters[0].values;
+            arrayCategories.sort((a,b) => b.results - a.results);
+            arrayCategories = arrayCategories.slice(0,5);
+            response.categories = arrayCategories;
+            
             res.json(response);
         })
         .catch(error => {

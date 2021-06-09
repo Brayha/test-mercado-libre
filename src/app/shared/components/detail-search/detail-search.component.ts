@@ -22,8 +22,7 @@ export class DetailSearchComponent implements OnInit {
   }
 
    selectProduct(id: any) {
-    this.selectProductId.productAPI(id);
-    this.router.navigateByUrl("/items/:id" + id);
+    this.router.navigateByUrl("/items/" + id);
   }
   
 }

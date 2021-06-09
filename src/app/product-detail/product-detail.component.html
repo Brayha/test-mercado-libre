@@ -9,16 +9,16 @@
         <li>32 GB</li>
       </ul>
 
-      <div class="contain-product">
+      <div class="contain-product" *ngIf="productService.productData">
         <ion-row>
           <ion-col size="8">
-            <img src="{{productDetail.picture}}" alt="mercado libre" class="img-product">
+            <img src="{{productService.productData.picture}}" alt="mercado libre" class="img-product">
           </ion-col>
           <ion-col size="4">
-            <div class="text-product">
-              <p>Nuevo 234 - vendidos</p>
-              <h1>Deco Reverse Sombrero Oxford</h1>
-              <h2>$ {{productDetail.price.amount}}</h2>
+            <div class="text-product" *ngIf="productService.productData.price">
+              <p>Nuevo {{productService.productData.sold_quantity}} - vendidos</p>
+              <h1>{{productService.productData.title}}</h1>
+              <h2>$ {{productService.productData.price.amount | number}}</h2>
               <ion-button size="large" expand="block" color="secondary">Comprar</ion-button>
             </div>
           </ion-col>
@@ -27,15 +27,11 @@
         <ion-row class="description">
           <ion-col size="8">
             <h2>Descripción del producto</h2>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione repellendus et obcaecati,
-              necessitatibus,
-              sapiente quisquam culpa molestias dolor vel deleniti atque voluptates dignissimos repudiandae perspiciatis
-              eum
-              libero odit tenetur explicabo aliquam ea eos! Libero, similique ipsum. Tempora hic sequi officia, est id a
-              quas officiis deserunt blanditiis aliquid reprehenderit sint.</p>
+            <p>{{productService.productData.description}}</p>
           </ion-col>
         </ion-row>
       </div>
+
     </ion-col>
   </ion-row>
 </ion-content>
