@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { SearchService } from '../services/search.service';
-import { Router, ActivatedRoute } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-product-detail',
@@ -17,7 +17,6 @@ export class ProductDetailComponent implements OnInit {
     public activatedRoute: ActivatedRoute,
   ) {
     this.activatedRoute.params.subscribe(params => {
-      console.log('entre a', params);
       if (params && params.id) {
         this.id = params.id;
       }
@@ -25,7 +24,6 @@ export class ProductDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log('-------------->',this.id);
     this.productService.productAPI(this.id);
   }
 

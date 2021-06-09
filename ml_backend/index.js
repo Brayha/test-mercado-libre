@@ -20,10 +20,8 @@ app.get('/api/items', (req, res) => {
         return res.json(response);
     }
 
-    axios
-        .get('https://api.mercadolibre.com/sites/MLA/search?q=' + req.query.q)
+    axios.get('https://api.mercadolibre.com/sites/MLA/search?q=' + req.query.q)
         .then(resp => {
-            console.log('item----', resp.data.results);
             const items = [];
             resp.data.results.map(item => {
                 items.push({
@@ -35,7 +33,7 @@ app.get('/api/items', (req, res) => {
                         decimals: 0,
                     },
                     picture: item.thumbnail,
-                    state_name: item.state_name,
+                    state: item.address.state_name,
                     condition: item.condition,
                     free_shipping: item.shipping ? item.shipping.free_shipping : false,
                 });
@@ -45,11 +43,10 @@ app.get('/api/items', (req, res) => {
             arrayCategories.sort((a,b) => b.results - a.results);
             arrayCategories = arrayCategories.slice(0,5);
             response.categories = arrayCategories;
-            
             res.json(response);
         })
         .catch(error => {
-            res.json(response);
+            res.json(error);
         });
 });
 
@@ -66,24 +63,29 @@ app.get('/api/items/:id', (req, res) => {
         return res.json(response);
     }
     
-    axios
-    .get('https://api.mercadolibre.com/items/' + req.params.id)
+    const urlProduct='https://api.mercadolibre.com/items/' + req.params.id;
+
+    axios.get(urlProduct)
         .then(resp => {
-                response.item = {
-                id: resp.data.id,
-                title: resp.data.title,
-                price: {
-                    currency: resp.data.currency_id,
-                    amount: resp.data.price,
-                    decimals: 0,
-                },
-                picture: resp.data.thumbnail,
-                condition: resp.data.condition,
-                free_shipping: resp.data.shipping ? resp.data.shipping.free_shipping : false,
-                sold_quantity: resp.data.sold_quantity,
-                description: resp.data.description,
-            };
-            res.json(response);
+            axios.get(urlProduct + '/description').then(
+                descriptionData => {
+                    response.item = {
+                        id: resp.data.id,
+                        title: resp.data.title,
+                        price: {
+                            currency: resp.data.currency_id,
+                            amount: resp.data.price,
+                            decimals: 0,
+                        },
+                        picture: resp.data.thumbnail,
+                        condition: resp.data.condition,
+                        free_shipping: resp.data.shipping ? resp.data.shipping.free_shipping : false,
+                        sold_quantity: resp.data.sold_quantity,
+                        description: descriptionData.data.plain_text,
+                    };
+                    res.json(response);
+                } 
+            );
         })
         .catch(error => {
             console.log(error);

@@ -3,33 +3,31 @@ import { Injectable, Output, EventEmitter } from '@angular/core';
 
 @Injectable()
 export class SearchService {
-  @Output() searchResultsLoaded:EventEmitter<string> = new EventEmitter();
+  @Output() searchResultsLoaded: EventEmitter<string> = new EventEmitter();
   public searchData = [];
   public categories: any = [];
   public productData: any = [];
-  
+
   constructor(
     private http: HttpClient
-    ) {}
+  ) { }
 
-  public searchAPI(query:any) {
-    this.http.get("http://localhost:3000/api/items?q="+query).subscribe(
-        (results:any) => {
-            this.searchData = results.items;
-            this.categories = results.categories;
-            this.searchResultsLoaded.emit('loaded');
-            console.log(results);
-        }
+  public searchAPI(query: string) {
+    this.http.get("http://localhost:3000/api/items?q=" + query).subscribe(
+      (results: any) => {
+        this.searchData = results.items;
+        this.categories = results.categories;
+        this.searchResultsLoaded.emit('loaded');
+      }
     );
   }
-  
-  public productAPI(id:any) {
-    this.http.get("http://localhost:3000/api/items/"+id).subscribe(
-        (results:any) => {
-            this.productData = results.item;
-            console.log('Info producto', this.productData);
-            return this.productData;
-        }
+
+  public productAPI(id: any) {
+    this.http.get("http://localhost:3000/api/items/" + id).subscribe(
+      (results: any) => {
+        this.productData = results.item;
+        return this.productData;
+      }
     );
   }
 }

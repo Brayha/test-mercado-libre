@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { SearchService } from 'src/app/services/search.service';
 import { SEARCH } from '../../constants/search';
 import { Router } from '@angular/router';
@@ -8,27 +8,21 @@ import { Router } from '@angular/router';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
   public searchDetail = SEARCH;
 
   constructor(
     private router: Router,
     private searchService: SearchService
-  ) {
+  ) { }
 
+  public onSearch(term: string | null | undefined) {
+    if (!term) return;
+    this.searchService.searchAPI(term);
+    this.router.navigateByUrl("/items" + "?search=" + term);
   }
 
-  ngOnInit() {
-
-  }
-
-  public onSearch(e: any) {
-    this.searchService.searchAPI(e);
-    console.log(e);
-    this.router.navigateByUrl("/items" + "?search=" + e);
-  }
-
-  goToHome() {
+  public goToHome() {
     this.router.navigateByUrl("/");
   }
 }

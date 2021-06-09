@@ -1,6 +1,7 @@
 <ion-content [fullscreen]="true">
   <ion-row class="responsive-style">
     <ion-col size="10" class="center-contain ion-no-padding">
+      <!--TODO - MISSING PROPERTY CATEGORIES IN RESPONSE-->
       <ul class="breadcrumb">
         <li>Electrónica, audio y video</li>
         <li>Ipod</li>
@@ -8,13 +9,12 @@
         <li>Ipod Touch</li>
         <li>32 GB</li>
       </ul>
-
       <div class="contain-product" *ngIf="productService.productData">
         <ion-row>
-          <ion-col size="8">
+          <ion-col size="8" class="ion-no-padding">
             <img src="{{productService.productData.picture}}" alt="mercado libre" class="img-product">
           </ion-col>
-          <ion-col size="4">
+          <ion-col size="4" class="ion-no-padding">
             <div class="text-product" *ngIf="productService.productData.price">
               <p>Nuevo {{productService.productData.sold_quantity}} - vendidos</p>
               <h1>{{productService.productData.title}}</h1>
@@ -23,15 +23,13 @@
             </div>
           </ion-col>
         </ion-row>
-
         <ion-row class="description">
-          <ion-col size="8">
+          <ion-col size="8" class="ion-no-padding">
             <h2>Descripción del producto</h2>
             <p>{{productService.productData.description}}</p>
           </ion-col>
         </ion-row>
       </div>
-
     </ion-col>
   </ion-row>
 </ion-content>
