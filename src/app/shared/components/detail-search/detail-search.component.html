@@ -8,7 +8,7 @@
       <div class="info-price">
         <h2>$ {{data.price.amount | number}}</h2>
         <img src="./assets/ic_shipping.png" alt="mercado-libre" class="delivery-icon" *ngIf="data.free_shipping">
-        <h3>Capital Federal</h3>
+        <h3>{{data.state_name}}</h3>
       </div>
       <!--descripción-->
       <div class="info-product">

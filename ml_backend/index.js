@@ -23,7 +23,7 @@ app.get('/api/items', (req, res) => {
     axios
         .get('https://api.mercadolibre.com/sites/MLA/search?q=' + req.query.q)
         .then(resp => {
-            console.log('item----', resp);
+            console.log('item----', resp.data.results);
             const items = [];
             resp.data.results.map(item => {
                 items.push({
@@ -35,6 +35,7 @@ app.get('/api/items', (req, res) => {
                         decimals: 0,
                     },
                     picture: item.thumbnail,
+                    state_name: item.state_name,
                     condition: item.condition,
                     free_shipping: item.shipping ? item.shipping.free_shipping : false,
                 });
